@@ -12,4 +12,4 @@ Cylon
     });
   });
 
-Cylon.start();
+Cylon.start
