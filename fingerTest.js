@@ -29,7 +29,7 @@ function RPS(fingers){
 }
 
 function compare(p1, p2){
-	if (p1 === p2):
+	if (p1 === p2)
 		return "tie"
 	if (p1 === "scissors" && p2 === "rock")
 		return p2;
