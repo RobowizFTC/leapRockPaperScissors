@@ -1,0 +1,10 @@
+p {
+	font-size: 40vw;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+div{
+	margin: 0 auto;
+  	border-radius: 3px;
+  	display: block;
+}

@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title></title>
+	<!-- <script src="fingerTest.js"></script> -->
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+	var count = 3;
+	var myVar = setInterval(myTimer, 1000);
+	function myTimer() {
+		console.log(count);
+    	if(count > 0){
+    		$("#countdown").html(""+count);
+    		count--;
+    	}
+    	else{
+    		window.clearInterval(myVar);
+    		$("#countdown").html("Go!");
+    	}
+	}
+	function checkGame() {
+
+	}
+	</script>
+</head>
+<body>
+<div><p id="countdown"></p></div>
+</body>
+</html>
