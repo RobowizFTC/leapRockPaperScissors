@@ -1,0 +1,14 @@
+{
+  "name": "leapRockPaperScissors",
+  "homepage": "https://github.com/RobowizFTC/leapRockPaperScissors",
+  "authors": [
+    "AdarshK1 <addy2999@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.2"
+  }
+}

@@ -1,5 +1,8 @@
 var Cylon = require('cylon');
 
+
+
+
 Cylon
 	.robot()
 	.connection("leapmotion", { adaptor: "leapmotion" })
@@ -13,19 +16,26 @@ Cylon
 			hand.middleFinger.extended,
 			hand.ringFinger.extended,
 			hand.pinky.extended];
+			var temp = RPS(fingers);
 			console.log(RPS(fingers));
+			//$("#countdown").html(temp);
 		});
 	});
 
 Cylon.start()
 
 function RPS(fingers){
+	var ans = ""
 	if (fingers[1] && fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
-		return "scissors";
+		ans = "scissors";
 	if (fingers[0] && fingers[1] && fingers[2] && fingers[3] && fingers[4])
-		return "paper";
+		ans = "paper";
 	else
-		return "rock";
+		ans = "rock";
+
+	document.getElementById("countdown").innerHTML = ans;
+
+	return ans;
 }
 
 function compare(p1, p2){
@@ -44,3 +54,4 @@ function compare(p1, p2){
 	if (p1 === "paper" && p2 === "rock")
 		return p1;
 }
+

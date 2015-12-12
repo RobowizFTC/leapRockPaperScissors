@@ -1,5 +1,11 @@
+html, body{
+	height: 100%;
+
+}
+
+
 p {
-	font-size: 40vw;
+	font-size: 20vw;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	text-align: center;
 }
