@@ -1,12 +1,18 @@
 <html>
 	<head>
-	<!-- <script src="fingerTest.js"></script> -->
+		<!-- <script src="fingerTest.js"></script> -->
+		<!--CSS Sheets-->
 		<link rel="stylesheet" href="style.css">
+		<!--Polymer Imports-->
 		<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
 		<link rel="import" href="bower_components/paper-material/paper-material">
 		<link rel="import" href="bower_components/paper-button/paper-button.html">
 		<link rel="import" href="bower_components/paper-input/paper-input.html">
+		<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+		<!--Leap Script and Jquery-->
+		<script type="text/javascript" src="browser_script.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 		<script>
 		var count = 3;
 		var myVar = setInterval(myTimer, 1000);
@@ -21,15 +27,36 @@
 	    		$("#countdown").html("Go!");
 	    	}
 		}
-
 		</script>
-		<script type="text/javascript" src="browser_script.js"></script>
-
+		
+		<style is="custom-style">
+		  paper-toolbar {
+		    --paper-toolbar-background: #D32F2F; /* changes the background to blue*/
+		    box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+		    color: #FFFFFF;
+		    font-size: 1.5em;
+		    }; /* Notice the semicolon here */
+		  }
+		</style>
 		</head>
+
 		<body>
-			<paper-toolbar>Leap Motion Rock Paper Scissors!</paper-toolbar>
-			<paper-material elevation = "5"><p id="countdown"></p></paper-material>
-			<paper-material class = "right" elevation = "5"></paper-material>
+			<paper-toolbar><paper-tab>Leap Motion Rock Paper Scissors! By Team Robowiz</paper-tab></paper-toolbar>
+
+			<paper-material class = "left" elevation = "2">
+				<paper-input label="Name"></paper-input>
+				<paper-button raised>
+					Start Game
+				</paper-button>
+				<paper-material elevation="0" class = "scoreCard">
+				
+				</paper-material>
+			</paper-material>
+
+			<paper-material class = "right" elevation = "2">
+				<p id="countdown"></p>
+				
+			</paper-material>
 
 		</body>
 </html>
