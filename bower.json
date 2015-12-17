@@ -9,6 +9,9 @@
   "moduleType": [],
   "license": "MIT",
   "dependencies": {
-    "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.2"
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.2",
+    "paper-material": "PolymerElements/paper-material#~1.0.5",
+    "paper-button": "PolymerElements/paper-button#~1.0.11",
+    "paper-input": "PolymerElements/paper-input#~1.1.3"
   }
 }

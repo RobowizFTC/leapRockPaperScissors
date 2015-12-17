@@ -1,32 +1,35 @@
 <html>
-<head>
-	<title></title>
+	<head>
 	<!-- <script src="fingerTest.js"></script> -->
-	<link rel="stylesheet" href="style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
-	var count = 3;
-	var myVar = setInterval(myTimer, 1000);
-	function myTimer() {
-		console.log(count);
-    	if(count > 0){
-    		$("#countdown").html(""+count);
-    		count--;
-    	}
-    	else{
-    		window.clearInterval(myVar);
-    		$("#countdown").html("Go!");
-    	}
-	}
+		<link rel="stylesheet" href="style.css">
+		<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+		<link rel="import" href="bower_components/paper-material/paper-material">
+		<link rel="import" href="bower_components/paper-button/paper-button.html">
+		<link rel="import" href="bower_components/paper-input/paper-input.html">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+		var count = 3;
+		var myVar = setInterval(myTimer, 1000);
+		function myTimer() {
+			console.log(count);
+	    	if(count > 0){
+	    		$("#countdown").html(""+count);
+	    		count--;
+	    	}
+	    	else{
+	    		window.clearInterval(myVar);
+	    		$("#countdown").html("Go!");
+	    	}
+		}
 
-	</script>
-	<script type="text/javascript" src="browser_script.js"></script>
+		</script>
+		<script type="text/javascript" src="browser_script.js"></script>
 
-	
-	
-</head>
-<body>
-	<div class = "header">Leap Motion Rock Paper Scissors!</div>
-	<div><p id="countdown"></p></div>
-</body>
+		</head>
+		<body>
+			<paper-toolbar>Leap Motion Rock Paper Scissors!</paper-toolbar>
+			<paper-material elevation = "5"><p id="countdown"></p></paper-material>
+			<paper-material class = "right" elevation = "5"></paper-material>
+
+		</body>
 </html>
