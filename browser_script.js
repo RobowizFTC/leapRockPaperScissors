@@ -27,12 +27,12 @@ Cylon.start()
 
 function RPS(fingers){
 	var ans = ""
-	if (fingers[1] && fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
-		ans = "scissors";
 	if (fingers[0] && fingers[1] && fingers[2] && fingers[3] && fingers[4])
 		ans = "paper";
-	else
+	if (!fingers[1] && !fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
 		ans = "rock";
+	else
+		ans = "scissors";
 
 	document.getElementById("countdown").innerHTML = ans;
 

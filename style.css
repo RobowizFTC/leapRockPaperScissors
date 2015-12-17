@@ -12,8 +12,10 @@ html, body{
 }
 
 p {
-	font-size: 20vw;
+	font-size: 15vw;
 	text-align: center;
+	margin: 0;
+	padding-top: 10vh;
 }
 div{
 	margin: 0 auto;
@@ -21,10 +23,24 @@ div{
   	display: block;
 }
 
-paper-material{
-	width: 49.5vw;
+#big{
+	width: 49vw;
 	height: 100%;
+}
 
+#countdown{
+	height:50vh;
+}
+
+.buttons{
+	display: table;
+	margin-left: 15vw;
+	margin-top: 10vh;
+}
+
+#reset{
+	margin-left: 3vw
+	margin: 3vw;
 }
 
 paper-toolbar{
@@ -33,11 +49,17 @@ paper-toolbar{
 	z-index: 10;
 }
 
+.buttons paper-button{
+	text-align: center;
+	display: table-cell;
+	width: 10vw;
+}
+
 paper-input{
 	padding-top: 10vh;
 	width: 30vw;
 	text-align: center;
-	padding-left: 8vw;
+	margin: 0 auto;
 }
 
 .right{
@@ -50,3 +72,42 @@ paper-input{
 	float: left;
 	clear:left;
 }
+
+.scoreCard{
+	font-size: .75em;
+	display: table;
+	/*padding-left: 10vw;*/
+	text-align: center;
+	padding-top: 10vh;
+	height: 20vh;
+	margin: 0 auto;
+}
+
+.scoreCard paper-material{
+	width: 10vw;
+	display: table-cell;
+}
+
+.display{
+	display: table;
+	margin-top: 70vh;
+	margin-left: 
+}
+
+.display paper-material{
+	display: table-cell;
+	height: 25vh;
+	width: 10vw;
+}
+
+.display h1{
+	font-size: 1.5em;
+}
+
+
+
+
+
+
+
+

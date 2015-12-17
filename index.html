@@ -14,19 +14,19 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 		<script>
-		var count = 3;
-		var myVar = setInterval(myTimer, 1000);
-		function myTimer() {
-			console.log(count);
-	    	if(count > 0){
-	    		$("#countdown").html(""+count);
-	    		count--;
-	    	}
-	    	else{
-	    		window.clearInterval(myVar);
-	    		$("#countdown").html("Go!");
-	    	}
-		}
+			var count = 3;
+			var myVar = setInterval(myTimer, 1000);
+			function myTimer() {
+				console.log(count);
+		    	if(count > 0){
+		    		$("#countdown").html(""+count);
+		    		count--;
+		    	}
+		    	else{
+		    		window.clearInterval(myVar);
+		    		$("#countdown").html("Go!");
+		    	}
+			}
 		</script>
 		
 		<style is="custom-style">
@@ -43,20 +43,66 @@
 		<body>
 			<paper-toolbar><paper-tab>Leap Motion Rock Paper Scissors! By Team Robowiz</paper-tab></paper-toolbar>
 
-			<paper-material class = "left" elevation = "2">
+			<paper-material id = "big" class = "left" elevation = "2">
 				<paper-input label="Name"></paper-input>
-				<paper-button raised>
-					Start Game
-				</paper-button>
+				<div class = "buttons">
+					<paper-button raised onClick = "startGame" id = "start">
+						Start Game
+					</paper-button>
+					<paper-button disabled id = "reset">
+						Reset
+					</paper-button>
+				</div>
 				<paper-material elevation="0" class = "scoreCard">
-				
+					<paper-material class = "comp">
+						<h1>
+							Jarvis:
+
+						</h1>
+						<p id = "jScore"></p>
+					</paper-material>
+					<paper-material class = "tie">
+						<h1>
+							Ties:
+						</h1>
+						<p id = "tScore"></p>
+					</paper-material>
+					<paper-material class = "name">
+						<h1>
+							Name:
+						</h1>
+						<p id = "nScore"></p>
+					</paper-material>
 				</paper-material>
+				
 			</paper-material>
 
-			<paper-material class = "right" elevation = "2">
+			<paper-material id = "big" class = "right" elevation = "2">
 				<p id="countdown"></p>
-				
+
+				<paper-material class="display">
+					<paper-material class = "jDisplay">
+						<h1>
+							Jarvis's Move
+						</h1>
+					</paper-material>
+					<paper-material class = "nDisplay">
+						<h1>
+							Name's Move
+						</h1>
+					</paper-material>
+				</paper-material>
 			</paper-material>
 
 		</body>
 </html>
+
+
+
+
+
+
+
+
+
+
