@@ -1,56 +1,7 @@
 var Cylon = require('cylon');
+var currentAns = ""
+var count = 3;
 
 
 
-
-Cylon
-	.robot()
-	.connection("leapmotion", { adaptor: "leapmotion" })
-	.device("leapmotion", { driver: "leapmotion" })
-	.on("ready", function(bot) 
-	{
-		bot.leapmotion.on("hand", function(hand) 
-		{
-			var fingers = [hand.thumb.extended,
-			hand.indexFinger.extended,
-			hand.middleFinger.extended,
-			hand.ringFinger.extended,
-			hand.pinky.extended];
-			var temp = RPS(fingers);
-			console.log(RPS(fingers));
-		});
-	});
-
-Cylon.start()
-
-function RPS(fingers){
-	var ans = ""
-	if (fingers[0] && fingers[1] && fingers[2] && fingers[3] && fingers[4])
-		ans = "paper";
-	if (!fingers[1] && !fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
-		ans = "rock";
-	else
-		ans = "scissors";
-
-	document.getElementById("countdown").innerHTML = ans;
-
-	return ans;
-}
-
-function compare(p1, p2){
-	if (p1 === p2)
-		return "tie"
-	if (p1 === "scissors" && p2 === "rock")
-		return p2;
-	if (p1 === "rock" && p2 === "scissors")
-		return p1;
-	if (p1 === "paper" && p2 === "scissors")
-		return p2;
-	if (p1 === "scissors" && p2 === "paper")
-		return p1;
-	if (p1 === "rock" && p2 === "paper")
-		return p2;
-	if (p1 === "paper" && p2 === "rock")
-		return p1;
-}
 

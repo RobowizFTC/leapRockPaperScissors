@@ -10,25 +10,9 @@
 		<link rel="import" href="bower_components/paper-input/paper-input.html">
 		<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
 		<!--Leap Script and Jquery-->
-		<script type="text/javascript" src="browser_script.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-		<script>
-			var count = 3;
-			var myVar = setInterval(myTimer, 1000);
-			function myTimer() {
-				console.log(count);
-		    	if(count > 0){
-		    		$("#countdown").html(""+count);
-		    		count--;
-		    	}
-		    	else{
-		    		window.clearInterval(myVar);
-		    		$("#countdown").html("Go!");
-		    	}
-			}
-		</script>
-		
+		<script type="text/javascript" src="browser_script.js"></script>
+		<script type="text/javascript" src="script.js"></script>
 		<style is="custom-style">
 		  paper-toolbar {
 		    --paper-toolbar-background: #D32F2F; /* changes the background to blue*/
@@ -36,65 +20,64 @@
 		    color: #FFFFFF;
 		    font-size: 1.5em;
 		    }; /* Notice the semicolon here */
-		  }
-		</style>
-		</head>
+		  }</style>
+	</head>
 
-		<body>
-			<paper-toolbar><paper-tab>Leap Motion Rock Paper Scissors! By Team Robowiz</paper-tab></paper-toolbar>
+	<body>
+		<paper-toolbar><paper-tab>Leap Motion Rock Paper Scissors! By Team Robowiz</paper-tab></paper-toolbar>
 
-			<paper-material id = "big" class = "left" elevation = "2">
-				<paper-input label="Name"></paper-input>
-				<div class = "buttons">
-					<paper-button raised onClick = "startGame" id = "start">
-						Start Game
-					</paper-button>
-					<paper-button disabled id = "reset">
-						Reset
-					</paper-button>
-				</div>
-				<paper-material elevation="0" class = "scoreCard">
-					<paper-material class = "comp">
-						<h1>
-							Jarvis:
+		<paper-material id = "big" class = "left" elevation = "2">
+			<paper-input label="Name" id="nameIn"></paper-input>
+			<div class = "buttons">
+				<paper-button raised onClick = "startGame()" id = "start">
+					Start Game
+				</paper-button>
+				<paper-button id = "reset" onClick="reset()" raised>
+					Reset
+				</paper-button>
+			</div>
+			<paper-material elevation="0" class = "scoreCard">
+				<paper-material class = "comp">
+					<h1>
+						Jarvis:
 
-						</h1>
-						<p id = "jScore"></p>
-					</paper-material>
-					<paper-material class = "tie">
-						<h1>
-							Ties:
-						</h1>
-						<p id = "tScore"></p>
-					</paper-material>
-					<paper-material class = "name">
-						<h1>
-							Name:
-						</h1>
-						<p id = "nScore"></p>
-					</paper-material>
+					</h1>
+					<p id = "jScore"></p>
 				</paper-material>
-				
-			</paper-material>
-
-			<paper-material id = "big" class = "right" elevation = "2">
-				<p id="countdown"></p>
-
-				<paper-material class="display">
-					<paper-material class = "jDisplay">
-						<h1>
-							Jarvis's Move
-						</h1>
-					</paper-material>
-					<paper-material class = "nDisplay">
-						<h1>
-							Name's Move
-						</h1>
-					</paper-material>
+				<paper-material class = "tie">
+					<h1>
+						Ties:
+					</h1>
+					<p id = "tScore"></p>
+				</paper-material>
+				<paper-material class = "name">
+					<h1>
+						Name:
+					</h1>
+					<p id = "nScore"></p>
 				</paper-material>
 			</paper-material>
+			
+		</paper-material>
 
-		</body>
+		<paper-material id = "big" class = "right" elevation = "2">
+			<p id="countdown"></p>
+
+			<paper-material class="display">
+				<paper-material class = "jDisplay">
+					<h1>
+						Jarvis's Move
+					</h1>
+				</paper-material>
+				<paper-material class = "nDisplay">
+					<h1>
+						Name's Move
+					</h1>
+				</paper-material>
+			</paper-material>
+		</paper-material>
+
+	</body>
 </html>
 
 

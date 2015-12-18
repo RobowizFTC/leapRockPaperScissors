@@ -1,9 +1,7 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var Cylon = require('cylon');
-
-
-
-
+var currentAns = ""
+var count = 3;
 Cylon
 	.robot()
 	.connection("leapmotion", { adaptor: "leapmotion" })
@@ -18,8 +16,8 @@ Cylon
 			hand.ringFinger.extended,
 			hand.pinky.extended];
 			var temp = RPS(fingers);
+			var currentAns = RPS(fingers);
 			console.log(RPS(fingers));
-			//$("#countdown").html(temp);
 		});
 	});
 
@@ -39,22 +37,23 @@ function RPS(fingers){
 	return ans;
 }
 
-function compare(p1, p2){
+function compare(p1, p2, player1, player2){
 	if (p1 === p2)
 		return "tie"
 	if (p1 === "scissors" && p2 === "rock")
-		return p2;
+		return player2;
 	if (p1 === "rock" && p2 === "scissors")
-		return p1;
+		return player1;
 	if (p1 === "paper" && p2 === "scissors")
-		return p2;
+		return player2;
 	if (p1 === "scissors" && p2 === "paper")
-		return p1;
+		return player1;
 	if (p1 === "rock" && p2 === "paper")
-		return p2;
+		return player2;
 	if (p1 === "paper" && p2 === "rock")
-		return p1;
+		return player1;
 }
+
 
 
 },{"cylon":27}],2:[function(require,module,exports){
