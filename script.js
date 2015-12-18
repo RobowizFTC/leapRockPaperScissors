@@ -1,6 +1,7 @@
 var count = 3;
 var Cylon = require('cylon');
 var ready = false;
+var currentAns = "";
 Cylon
 	.robot()
 	.connection("leapmotion", { adaptor: "leapmotion" })
@@ -15,7 +16,7 @@ Cylon
 			hand.ringFinger.extended,
 			hand.pinky.extended];
 			var temp = RPS(fingers);
-			var currentAns = RPS(fingers);
+			currentAns = RPS(fingers);
 			console.log(RPS(fingers));
 			console.log(currentAns);
 		});
@@ -30,7 +31,6 @@ function startGame(){
 	$.getScript("fingerTest.js", function(){
 		console.log("asdf");
 	});
-	while(!ready){}
 
 	doTurn();
 }
@@ -57,7 +57,7 @@ function doTurn(){
 	}
 
 	else if (winner == "tie"){
-		cur = $("#tScore").html();
+		cur = $("#tScore ").html();
 		$("#tScore").html(parseInt(cur) + 1);
 	}
 }
@@ -68,11 +68,10 @@ function pAgain(){
 }
 
 function reset(){
-	location.reload();
+	document.reload();
 }
 
 function myTimer() {
-	console.log(count);
 	if(count > 0){
 		$("#countdown").html(""+count);
 		count--;
@@ -80,7 +79,11 @@ function myTimer() {
 	else if (count == 0){
 		$("#countdown").html("Go!");
 		ready = true;
-		count--;
+		$.getScript("fingerTest.js", function(){
+		console.log("asdf");
+		});
+		doTurn();
+		window.clearInterval(myTimer);
 	}
 }
 
