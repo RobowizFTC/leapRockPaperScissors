@@ -1,6 +1,6 @@
 var count = 3;
 var Cylon = require('cylon');
-
+var ready = false;
 Cylon
 	.robot()
 	.connection("leapmotion", { adaptor: "leapmotion" })
@@ -17,6 +17,7 @@ Cylon
 			var temp = RPS(fingers);
 			var currentAns = RPS(fingers);
 			console.log(RPS(fingers));
+			console.log(currentAns);
 		});
 	});
 
@@ -29,11 +30,15 @@ function startGame(){
 	$.getScript("fingerTest.js", function(){
 		console.log("asdf");
 	});
+	while(!ready){}
+
 	doTurn();
 }
 
 function doTurn(){
+	window.clearInterval(myTimer);
 	var r =  Math.floor(Math.random() * 3);
+	console.log(r + "=r");
 	winner = "";
 	if (r==0){
 		winner = compare("scissors", currentAns, "J", "N");
@@ -45,7 +50,7 @@ function doTurn(){
 	else{
 		winner = compare("paper", currentAns, "J", "N");
 	}
-
+	console.log("winner" + winner)
 	if (winner == "J"){
 		cur = $("#jScore").html();
 		$("#jScore").html(parseInt(cur) + 1);
@@ -72,8 +77,10 @@ function myTimer() {
 		$("#countdown").html(""+count);
 		count--;
 	}
-	else{
+	else if (count == 0){
 		$("#countdown").html("Go!");
+		ready = true;
+		count--;
 	}
 }
 
@@ -98,10 +105,10 @@ function RPS(fingers){
 	var ans = ""
 	if (fingers[0] && fingers[1] && fingers[2] && fingers[3] && fingers[4])
 		ans = "paper";
-	if (!fingers[1] && !fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
-		ans = "rock";
-	else
+	if (fingers[1] && fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
 		ans = "scissors";
+	else
+		ans = "rock";
 
 	document.getElementById("countdown").innerHTML = ans;
 
