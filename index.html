@@ -9,10 +9,12 @@
 		<link rel="import" href="bower_components/paper-button/paper-button.html">
 		<link rel="import" href="bower_components/paper-input/paper-input.html">
 		<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+
 		<!--Leap Script and Jquery-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!--script type="text/javascript" src="browser_script.js"></script-->
-		<script type="text/javascript" src="script.js"></script>
+
+		<script type="text/javascript" src="browser_script.js"></script>
+		<!--<script type="text/javascript" src="script.js"></script>-->
 		<style is="custom-style">
 		  paper-toolbar {
 		    --paper-toolbar-background: #D32F2F; /* changes the background to blue*/
@@ -29,10 +31,10 @@
 		<paper-material id = "big" class = "left" elevation = "2">
 			<paper-input label="Name" id="nameIn"></paper-input>
 			<div class = "buttons">
-				<paper-button raised onClick = "startGame()" id = "start">
+				<paper-button raised onclick = "startGame()" id = "start">
 					Start Game
 				</paper-button>
-				<paper-button id = "reset" onClick="reset()" raised>
+				<paper-button id = "reset" onclick="document.reload()" raised>
 					Reset
 				</paper-button>
 			</div>
@@ -40,21 +42,20 @@
 				<paper-material class = "comp">
 					<h1>
 						Jarvis:
-
 					</h1>
-					<p id = "jScore"></p>
+					<p id = "jScore">0</p>
 				</paper-material>
 				<paper-material class = "tie">
 					<h1>
 						Ties:
 					</h1>
-					<p id = "tScore"></p>
+					<p id = "tScore">0</p>
 				</paper-material>
 				<paper-material class = "name">
-					<h1>
+					<h1 id = "nameTitle">
 						Name:
 					</h1>
-					<p id = "nScore"></p>
+					<p id = "nScore">0</p>
 				</paper-material>
 			</paper-material>
 			
