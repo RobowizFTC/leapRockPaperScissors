@@ -3,7 +3,7 @@ var count = 3;
 var Cylon = require('cylon');
 var ready = false;
 var currentAns = "";
-console.log("ffff");
+console.log(document.getElementById("start"));
 //Cylon setup
 Cylon
 	.robot()
@@ -14,18 +14,20 @@ Cylon
 		bot.leapmotion.on("hand", function(hand) 
 		{
 			var fingers = [hand.thumb.extended,
-			hand.indexFinger.extended,
+			hand.indexFinger.extended, 
 			hand.middleFinger.extended,
 			hand.ringFinger.extended,
 			hand.pinky.extended];
 			currentAns = RPS(fingers);
-			console.log(currentAns)
+			console.log(currentAns);
+      document.getElementById("countdown").innerHTML = currentAns;
+
 		});
 	});
 
 Cylon.start()
 
-
+/*
 //activated by start button, changes state of website to be replayable
 function setupGame(){
 	$("#start").html("Play Again");
@@ -108,6 +110,7 @@ function compare(p1, p2){
 	if (p1 === "paper" && p2 === "rock")
 		return "p1";
 }
+*/
 //checks what kind of symbol in hands
 function RPS(fingers){
 	var ans = ""
