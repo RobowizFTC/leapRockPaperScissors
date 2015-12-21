@@ -26,6 +26,7 @@ div{
 #big{
 	width: 49vw;
 	height: 100%;
+	z-index: 1;
 }
 
 #countdown{
@@ -98,6 +99,7 @@ paper-input{
 	display: table-cell;
 	height: 25vh;
 	width: 10vw;
+	z-index: 5;
 }
 
 .display h1{

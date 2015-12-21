@@ -1,6 +1,9 @@
 var count = 3;
 var Cylon = require('cylon');
 var ready = false;
+var currentAns = "";
+console.log("ffff");
+//Cylon setup
 Cylon
 	.robot()
 	.connection("leapmotion", { adaptor: "leapmotion" })
@@ -14,93 +17,98 @@ Cylon
 			hand.middleFinger.extended,
 			hand.ringFinger.extended,
 			hand.pinky.extended];
-			var temp = RPS(fingers);
-			var currentAns = RPS(fingers);
-			console.log(RPS(fingers));
-			console.log(currentAns);
+			currentAns = RPS(fingers);
+			console.log(currentAns)
+			console.log("ay");
 		});
 	});
 
 Cylon.start()
 
-function startGame(){
+
+//activated by start button, changes state of website to be replayable
+function setupGame(){
 	$("#start").html("Play Again");
-	document.getElementById("start").setAttribute("onClick", "pAgain()");
+	//start timer
+	count = 3;
 	var myVar = setInterval(myTimer, 1000);
-	$.getScript("fingerTest.js", function(){
-		console.log("asdf");
-	});
-	while(!ready){}
 
-	doTurn();
+	//setName
+	var name = $("#nameIn").val();
+	$("#nameTitle").html(name + ":");
 }
 
-function doTurn(){
-	window.clearInterval(myTimer);
-	var r =  Math.floor(Math.random() * 3);
-	console.log(r + "=r");
+function startGame(){
+	console.log("r: " + r);
 	winner = "";
-	if (r==0){
-		winner = compare("scissors", currentAns, "J", "N");
+	var cur = "0";
+
+	//choose random value and compare with player's
+	switch(Math.floor(Math.random() * 3)){
+	
+		case 0:
+			winner = compare("scissors", currentAns); 
+			break;
+		case 1:
+			winner = compare("rock", currentAns); 
+			break;
+		case 2:
+			winner = compare("paper", currentAns); 
+			break;
 	}
 
-	else if (r == 1){
-		winner = compare("rock", currentAns, "J", "N");
-	}
-	else{
-		winner = compare("paper", currentAns, "J", "N");
-	}
-	console.log("winner" + winner)
-	if (winner == "J"){
-		cur = $("#jScore").html();
-		$("#jScore").html(parseInt(cur) + 1);
-	}
+	console.log("winner: " + winner)
 
-	else if (winner == "tie"){
-		cur = $("#tScore").html();
-		$("#tScore").html(parseInt(cur) + 1);
+	//increment based on result
+	switch(winner){
+		case "p1":
+			cur = $("#nScore").html();
+			$("#nScore").html(parseInt(cur)+1); 
+			break;
+		case "p2":
+			cur = $("#jScore").html();
+			$("#jScore").html(parseInt(cur)+1); 
+			break;
+		case "tie":
+			cur = $("#tScore").html();
+			$("#tScore").html(parseInt(cur)+1); 
+			break;
+
 	}
 }
 
-function pAgain(){
-	var myVar = setInterval(myTimer, 1000);
-	doTurn();
-}
-
-function reset(){
-	location.reload();
-}
-
+//timer function, starts game after 3 seconds
 function myTimer() {
-	console.log(count);
 	if(count > 0){
 		$("#countdown").html(""+count);
 		count--;
 	}
 	else if (count == 0){
+		window.clearInterval(myTimer);
 		$("#countdown").html("Go!");
-		ready = true;
-		count--;
+		startGame();
+		
 	}
 }
 
-function compare(p1, p2, player1, player2){
+//compare method, returns winner
+function compare(p1, p2){
 	if (p1 === p2)
 		return "tie"
 	if (p1 === "scissors" && p2 === "rock")
-		return player2;
+		return "p2";
 	if (p1 === "rock" && p2 === "scissors")
-		return player1;
+		return "p1";
 	if (p1 === "paper" && p2 === "scissors")
-		return player2;
+		return "p2";
 	if (p1 === "scissors" && p2 === "paper")
-		return player1;
+		return "p1";
 	if (p1 === "rock" && p2 === "paper")
-		return player2;
+		return "p2";
 	if (p1 === "paper" && p2 === "rock")
-		return player1;
+		return "p1";
 }
-
+//checks what kind of symbol in hands
 function RPS(fingers){
 	var ans = ""
 	if (fingers[0] && fingers[1] && fingers[2] && fingers[3] && fingers[4])
@@ -109,8 +117,6 @@ function RPS(fingers){
 		ans = "scissors";
 	else
 		ans = "rock";
-
-	document.getElementById("countdown").innerHTML = ans;
 
 	return ans;
 }
