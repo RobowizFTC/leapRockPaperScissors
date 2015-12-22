@@ -3,6 +3,7 @@ var count = 3;
 var Cylon = require('cylon');
 var ready = false;
 var currentAns = "";
+var myVar;
 console.log(document.getElementById("start"));
 //Cylon setup
 Cylon
@@ -19,21 +20,23 @@ Cylon
 			hand.ringFinger.extended,
 			hand.pinky.extended];
 			currentAns = RPS(fingers);
-			console.log(currentAns);
-      document.getElementById("countdown").innerHTML = currentAns;
+			
+      //document.getElementById("countdown").innerHTML = currentAns;
 
 		});
 	});
 
 Cylon.start()
 
-/*
+setupGame()
+
+
 //activated by start button, changes state of website to be replayable
 function setupGame(){
 	$("#start").html("Play Again");
 	//start timer
 	count = 3;
-	var myVar = setInterval(myTimer, 1000);
+  myVar = setInterval(myTimer, 1000);
 
 	//setName
 	var name = $("#nameIn").val();
@@ -41,21 +44,20 @@ function setupGame(){
 }
 
 function startGame(){
-	console.log("r: " + r);
 	winner = "";
 	var cur = "0";
-
+  value = currentAns
 	//choose random value and compare with player's
-	switch(Math.floor(Math.random() * 3)){
+  switch(Math.floor(Math.random() * 3)){
 	
 		case 0:
-			winner = compare("scissors", currentAns); 
+			winner = compare("scissors", value); 
 			break;
 		case 1:
-			winner = compare("rock", currentAns); 
+			winner = compare("rock", value); 
 			break;
 		case 2:
-			winner = compare("paper", currentAns); 
+			winner = compare("paper", value); 
 			break;
 	}
 
@@ -64,12 +66,12 @@ function startGame(){
 	//increment based on result
 	switch(winner){
 		case "p1":
-			cur = $("#nScore").html();
-			$("#nScore").html(parseInt(cur)+1); 
-			break;
-		case "p2":
 			cur = $("#jScore").html();
 			$("#jScore").html(parseInt(cur)+1); 
+			break;
+		case "p2":
+			cur = $("#nScore").html();
+			$("#nScore").html(parseInt(cur)+1); 
 			break;
 		case "tie":
 			cur = $("#tScore").html();
@@ -86,16 +88,18 @@ function myTimer() {
 		count--;
 	}
 	else if (count == 0){
-		window.clearInterval(myTimer);
+		window.clearInterval(myVar);
 		$("#countdown").html("Go!");
-		startGame();
+		
+    startGame();
 		
 	}
 }
 
 //compare method, returns winner
 function compare(p1, p2){
-	if (p1 === p2)
+	console.log(p1, p2);
+  if (p1 === p2)
 		return "tie"
 	if (p1 === "scissors" && p2 === "rock")
 		return "p2";
@@ -110,7 +114,7 @@ function compare(p1, p2){
 	if (p1 === "paper" && p2 === "rock")
 		return "p1";
 }
-*/
+
 //checks what kind of symbol in hands
 function RPS(fingers){
 	var ans = ""
