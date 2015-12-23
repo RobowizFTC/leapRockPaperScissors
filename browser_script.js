@@ -43,6 +43,10 @@ function setupGame(){
 	$("#nameTitle").html(name + ":");
 }
 
+Polymer('element-name', {
+    startGame: startGame()
+});
+
 function startGame(){
 	winner = "";
 	var cur = "0";

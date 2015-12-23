@@ -89,10 +89,13 @@ paper-input{
 	display: table-cell;
 }
 
+.scoreCard p{
+	font-size: 5em;
+}
+
 .display{
 	display: table;
 	margin-top: 70vh;
-	margin-left: 
 }
 
 .display paper-material{
