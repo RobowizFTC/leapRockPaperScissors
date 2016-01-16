@@ -8,32 +8,105 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 		<script type="text/javascript" src="browser_script.js"></script>
+
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-material/paper-material.html">
+
+    <style is="custom-style">
+      paper-toolbar {
+        --paper-toolbar-background: #D32F2F; /* changes the background to blue*/
+        box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+        color: #FFFFFF;
+        font-size: 1.9em;
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+        text-align: center;
+        }; /* Notice the semicolon here */
+      paper-toolbar paper-tabs{
+        text-align: center;
+        padding-left: 32vw;
+        font-size: 1em;
+      }
+      paper-button{
+        background-color: #D32F2F;
+        color: #FFFFFF;
+      }
+    </style>
 		<!--<script type="text/javascript" src="script.js"></script>-->
 	</head>
 
 	<body>
-		<button id = "start">Start Game</button>
-		<button id = "reset">Reset Game</button>
-		<h1 id = "jTitle">
-			Jarvis: <div id="jScore"></div>
-		</h1>
-		<h1>
-			Ties:
-		</h1>
+    <paper-toolbar>
+      <paper-tabs>
+        <paper-tab>
+          Leap Rock Paper Scissors by Team Robowiz!
+      </paper-tab>
+    </paper-tabs>
+    </paper-toolbar>
+    <paper-material class="left" id="big" elevation="2">
+      <div class="buttons">
+  		  <paper-button raised id = "start">Start Game</paper-button>
+  		  <paper-button raised id = "reset">Reset Game</paper-button>
+      </div>
+  		<!-- <h1 id = "jTitle">
+  			Jarvis: <div id="jScore"></div>
+  		</h1>
+  		<h1>
+  			Ties:
+  		</h1>
 
-		<h1 id = "nameTitle">
-			Player: <div id="nScore"></div>
-		</h1>
+  		<h1 id = "nameTitle">
+  			Player1: <div id="nScore"></div>
+  		</h1> -->
+      <paper-material elevation="0" class = "scoreCard">
+        <paper-material class = "comp">
+          <h1>
+            Jarvis:
+          </h1>
+          <p id = "jScore">0</p>
+        </paper-material>
+        <paper-material class = "tie">
+          <h1>
+            Ties:
+          </h1>
+          <p id = "tScore">0</p>
+        </paper-material>
+        <paper-material class = "name">
+          <h1 id = "nTitle">
+            Player:
+          </h1>
+          <p id = "nScore">0</p>
+        </paper-material>
+      </paper-material>
+    </paper-material>
 
-		<p id="countdown"></p>
+    <paper-material class="right" id="big" elevation="2">
+  		<p id="countdown"></p>
 
-		<div>
-			<h1>Jarvis's Move<div id="jmove"></div></h1>
-		</div>
+  		<paper-material elevation="0"  id="display">
 
-		<div>
-			<h1>Player's Move: <div id="pmove"></div></h1>
-		</div>
+        <paper-material class = "jMove">
+          <h1>
+            Jarvis:
+          </h1>
+          <p id = "jMove"></p>
+        </paper-material>
+
+        <paper-material class = "name">
+          <h1 id = "nTitle">
+            Player:
+          </h1>
+          <p id = "nMove"></p>
+        </paper-material>
+
+      </paper-material>
+    </paper-material>
+
+      </paper-material>
+    </paper-material>
 
 	</body>
 </html>

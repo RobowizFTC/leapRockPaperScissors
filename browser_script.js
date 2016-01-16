@@ -39,8 +39,8 @@ function setupGame(){
   myVar = setInterval(myTimer, 1000);
 
 	//setName
-	var name = $("#nameIn").val();
-	$("#nameTitle").html(name + ":");
+	// var name = $("#nameIn").val();
+	// $("#nameTitle").html(name + ":");
 }
 
 
@@ -51,17 +51,19 @@ function startGame(){
   value = currentAns
 	//choose random value and compare with player's
   switch(Math.floor(Math.random() * 3)){
-	
 		case 0:
-			winner = compare("scissors", value); 
+			jarvisMove = "scissors";
 			break;
 		case 1:
-			winner = compare("rock", value); 
+			jarvisMove = "rock"; 
 			break;
 		case 2:
-			winner = compare("paper", value); 
+			jarvisMove = "paper"; 
 			break;
 	}
+  winner = compare(jarvisMove, value);
+  $("#jMove").html(jarvisMove);
+  $("#nMove").html(value);
 
 	console.log("winner: " + winner)
 
@@ -69,14 +71,17 @@ function startGame(){
 	switch(winner){
 		case "p1":
 			cur = $("#jScore").html();
+      console.log(cur);
 			$("#jScore").html(parseInt(cur)+1); 
 			break;
 		case "p2":
 			cur = $("#nScore").html();
+      console.log(cur);
 			$("#nScore").html(parseInt(cur)+1); 
 			break;
 		case "tie":
 			cur = $("#tScore").html();
+      console.log(cur);
 			$("#tScore").html(parseInt(cur)+1); 
 			break;
 
@@ -119,7 +124,7 @@ function compare(p1, p2){
 
 //checks what kind of symbol in hands
 function RPS(fingers){
-	var ans = ""
+	var ans = "undefined"
 	if (fingers[0] && fingers[1] && fingers[2] && fingers[3] && fingers[4])
 		ans = "paper";
 	else if (fingers[1] && fingers[2] && !fingers[0] && !fingers[3] && !fingers[4])
@@ -138,7 +143,7 @@ $(document).ready(function() {
       }  
     ); 
     $("#reset").click(function(){
-        alert("reset");
+        location = location;
     }); 
 
 });

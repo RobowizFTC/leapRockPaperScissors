@@ -15,7 +15,7 @@ p {
 	font-size: 15vw;
 	text-align: center;
 	margin: 0;
-	padding-top: 10vh;
+	padding-top: 2vh;
 }
 div{
 	margin: 0 auto;
@@ -26,28 +26,22 @@ div{
 #big{
 	width: 49vw;
 	height: 100%;
-	z-index: 1;
+	padding-top: 2vh;
 }
 
 #countdown{
+	padding-top: 15vh;
 	height:50vh;
 }
 
 .buttons{
 	display: table;
-	margin-left: 15vw;
-	margin-top: 10vh;
+	margin-top: 30vh;
 }
 
 #reset{
 	margin-left: 3vw
 	margin: 3vw;
-}
-
-paper-toolbar{
-	position: fixed;
-	width: 100%;
-	z-index: 10;
 }
 
 .buttons paper-button{
@@ -80,11 +74,12 @@ paper-input{
 	/*padding-left: 10vw;*/
 	text-align: center;
 	padding-top: 10vh;
-	height: 20vh;
+	height: 10vh;
 	margin: 0 auto;
 }
 
 .scoreCard paper-material{
+	margin-top: 40vh;
 	width: 10vw;
 	display: table-cell;
 }
@@ -93,25 +88,24 @@ paper-input{
 	font-size: 5em;
 }
 
-.display{
+#display{
+		font-size: .75em;
 	display: table;
-	margin-top: 70vh;
+	/*padding-left: 10vw;*/
+	text-align: center;
+	padding-top: 10vh;
+	height: 10vh;
+	margin: 0 auto;
 }
 
-.display paper-material{
+#display p{
+	font-size: 5em;
+}
+
+#display paper-material{
+	width: 15vw;
 	display: table-cell;
-	height: 25vh;
-	width: 10vw;
-	z-index: 5;
 }
-
-.display h1{
-	font-size: 1.5em;
-}
-
-
-
-
 
 
 
