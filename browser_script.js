@@ -28,7 +28,7 @@ Cylon
 
 Cylon.start()
 
-setupGame()
+
 
 
 //activated by start button, changes state of website to be replayable
@@ -43,9 +43,7 @@ function setupGame(){
 	$("#nameTitle").html(name + ":");
 }
 
-Polymer('element-name', {
-    startGame: startGame()
-});
+
 
 function startGame(){
 	winner = "";
@@ -94,7 +92,7 @@ function myTimer() {
 	else if (count == 0){
 		window.clearInterval(myVar);
 		$("#countdown").html("Go!");
-		
+		$("#start").prop("disabled",false);
     startGame();
 		
 	}
@@ -131,6 +129,19 @@ function RPS(fingers){
 
 	return ans;
 }
+
+
+$(document).ready(function() {
+    $("#start").click(function(){
+      setupGame();
+      $("#start").prop("disabled",true);
+      }  
+    ); 
+    $("#reset").click(function(){
+        alert("reset");
+    }); 
+
+});
 
 
 
