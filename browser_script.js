@@ -36,7 +36,7 @@ function setupGame(){
 	$("#start").html("Play Again");
 	//start timer
 	count = 3;
-  myVar = setInterval(myTimer, 1000);
+  myVar = setInterval(myTimer, 500);
 
 	//setName
 	// var name = $("#nameIn").val();
