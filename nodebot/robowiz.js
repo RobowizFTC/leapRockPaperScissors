@@ -17,6 +17,7 @@ var joints = new five.Servos([thumb, index, middle, ring, pinky]);
 
   // Center all servos.
   joints.center();
+  joints.sweep();
 
 });
 extend = 0;
