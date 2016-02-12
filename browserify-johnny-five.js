@@ -3,6 +3,9 @@
 
 (function(exports) {
   exports.five = require('johnny-five');
+  five = require('johnny-five');
+  b = new five.Board();
+  console.log(b);
 }(window));
 
 },{"johnny-five":45}],2:[function(require,module,exports){

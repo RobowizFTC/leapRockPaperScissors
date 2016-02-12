@@ -1,44 +1,44 @@
 var count = 3;
 var Cylon = require('cylon');
 var five = require("johnny-five");
-var board = new five.Board();
+//var board = new five.Board();
 var ready = false;
 var currentAns = "";
 var fingers = [];
-var thumb, index, middle, ring, pinky, elbow, joints;
+//var thumb, index, middle, ring, pinky, elbow, joints;
 
 console.log("ffff");
-//Cylon setup
-// Cylon
-// 	.robot()
-// 	.connection("leapmotion", { adaptor: "leapmotion" })
-// 	.device("leapmotion", { driver: "leapmotion" })
-// 	.on("ready", function(bot) 
-// 	{
-// 		bot.leapmotion.on("hand", function(hand) 
-// 		{
-// 			fingers = [hand.thumb.extended,
-// 			hand.indexFinger.extended,
-// 			hand.middleFinger.extended,
-// 			hand.ringFinger.extended,
-// 			hand.pinky.extended];
-// 			//currentAns = RPS(fingers);
+Cylon setup
+Cylon
+	.robot()
+	.connection("leapmotion", { adaptor: "leapmotion" })
+	.device("leapmotion", { driver: "leapmotion" })
+	.on("ready", function(bot) 
+	{
+		bot.leapmotion.on("hand", function(hand) 
+		{
+			fingers = [hand.thumb.extended,
+			hand.indexFinger.extended,
+			hand.middleFinger.extended,
+			hand.ringFinger.extended,
+			hand.pinky.extended];
+			//currentAns = RPS(fingers);
 			
-// 		});
-// 	});
+		});
+	});
 
-// Cylon.start()
-board.on("ready", function() {
+Cylon.start()
+// board.on("ready", function() {
 
 
 
-  thumb = new five.Servo(24);
-  index = new five.Servo(22);
-  middle = new five.Servo(8);
-  ring = new five.Servo(10);
-  pinky = new five.Servo(12);
-  elbow = new five.Servo(30);
-  joints = new five.Servos([thumb, index, middle, ring, pinky]);
+//   thumb = new five.Servo(24);
+//   index = new five.Servo(22);
+//   middle = new five.Servo(8);
+//   ring = new five.Servo(10);
+//   pinky = new five.Servo(12);
+//   elbow = new five.Servo(30);
+//   joints = new five.Servos([thumb, index, middle, ring, pinky]);
 
   // this.loop(500, function() {
   //   console.log(fingers);
