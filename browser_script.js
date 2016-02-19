@@ -4,8 +4,8 @@ var Cylon = require('cylon');
 var ready = false;
 var currentAns = "";
 var myVar;
-var io = require('socket.io');
-var socket = io.connect();
+//var io = require('socket.io');
+//var socket = io.connect();
 
 // socket.on('date', function(data){
 //         $('#date').text(data.date);
@@ -31,7 +31,7 @@ Cylon
 			hand.ringFinger.extended,
 			hand.pinky.extended];
 			currentAns = RPS(fingers);
-      console.log(currentAns);
+      //console.log(currentAns);
 			
       //document.getElementById("countdown").innerHTML = currentAns
 ;
@@ -54,27 +54,13 @@ function setupGame(){
 	// $("#nameTitle").html(name + ":");
 }
 
-
+var jarvisMove = "";
 
 function startGame(){
 	winner = "";
 	var cur = "0";
   value = currentAns
 	//choose random value and compare with player's
-  switch(Math.floor(Math.random() * 3)){
-		case 0:
-			jarvisMove = "scissors";
-      socket.emit('client_data', {jarvisMove: String.fromCharCode(e.charCode)});
-			break;
-		case 1:
-			jarvisMove = "rock"; 
-      socket.emit('client_data', {jarvisMove: String.fromCharCode(e.charCode)});
-			break;
-		case 2:
-			jarvisMove = "paper"; 
-      socket.emit('client_data', {jarvisMove: String.fromCharCode(e.charCode)});
-			break;
-	}
   winner = compare(jarvisMove, value);
   $("#jMove").html(jarvisMove);
   $("#nMove").html(value);
@@ -105,6 +91,26 @@ function startGame(){
 //timer function, starts game after 3 seconds
 function myTimer() {
 	if(count > 0){
+    if (count === 1) {
+      switch(Math.floor(Math.random() * 3)){
+        case 0:
+          jarvisMove = "scissors";
+          break;
+        case 1:
+          jarvisMove = "rock"; 
+          break;
+        case 2:
+          jarvisMove = "paper"; 
+          break;
+      }
+      $.ajax({
+      method: "GET",
+      url: "move.php",
+      data: { move: jarvisMove}
+      });
+        
+        
+    }
 		$("#countdown").html(""+count);
 		count--;
 	}

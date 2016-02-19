@@ -1,0 +1,112 @@
+@font-face{
+  font-family: 'Lato';
+  src:url(https://fonts.googleapis.com/css?family=Lato);
+}
+
+html, body{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+
+}
+
+p {
+	font-size: 15vw;
+	text-align: center;
+	margin: 0;
+	padding-top: 2vh;
+}
+div{
+	margin: 0 auto;
+  	border-radius: 3px;
+  	display: block;
+}
+
+#big{
+	width: 49vw;
+	height: 100%;
+	padding-top: 2vh;
+}
+
+#countdown{
+	padding-top: 15vh;
+	height:50vh;
+}
+
+.buttons{
+	display: table;
+	margin-top: 30vh;
+}
+
+#reset{
+	margin-left: 3vw
+	margin: 3vw;
+}
+
+.buttons paper-button{
+	text-align: center;
+	display: table-cell;
+	width: 10vw;
+}
+
+paper-input{
+	padding-top: 10vh;
+	width: 30vw;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.right{
+	clear : right;
+	float: right;
+	overflow: hidden;
+}
+
+.left{
+	float: left;
+	clear:left;
+}
+
+.scoreCard{
+	font-size: .75em;
+	display: table;
+	/*padding-left: 10vw;*/
+	text-align: center;
+	padding-top: 10vh;
+	height: 10vh;
+	margin: 0 auto;
+}
+
+.scoreCard paper-material{
+	margin-top: 40vh;
+	width: 10vw;
+	display: table-cell;
+}
+
+.scoreCard p{
+	font-size: 5em;
+}
+
+#display{
+		font-size: .75em;
+	display: table;
+	/*padding-left: 10vw;*/
+	text-align: center;
+	padding-top: 10vh;
+	height: 10vh;
+	margin: 0 auto;
+}
+
+#display p{
+	font-size: 5em;
+}
+
+#display paper-material{
+	width: 15vw;
+	display: table-cell;
+}
+
+
+
+
