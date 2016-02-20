@@ -1,5 +1,3 @@
-
-
 <?php
 $move = $_REQUEST["move"];
 $myfile = fopen("jarvisMove.txt", "w");
